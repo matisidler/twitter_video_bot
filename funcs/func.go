@@ -43,6 +43,8 @@ func getClient(creds *Credentials) (*twitter.Client, error) {
 	return client, nil
 }
 
+var i = 1
+
 func Testing(ctx *fiber.Ctx) error {
 	for {
 
@@ -98,7 +100,9 @@ func Testing(ctx *fiber.Ctx) error {
 		}
 
 		time.Sleep(5 * time.Second)
-		_, err = ctx.WriteString("hola oleme las bolas")
+		i++
+		str := fmt.Sprintf("hola oleme las ", i)
+		_, err = ctx.WriteString(str)
 		return err
 	}
 }
