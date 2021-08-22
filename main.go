@@ -13,5 +13,4 @@ func main() {
 	}
 
 	server.Start(port)
-
 }

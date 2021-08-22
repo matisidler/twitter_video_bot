@@ -3,7 +3,6 @@ package funcs
 import (
 	"fmt"
 	"strings"
-	"time"
 
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
@@ -45,12 +44,12 @@ func getClient(creds *Credentials) (*twitter.Client, error) {
 
 var i = 1
 
-func Testing(ctx *fiber.Ctx) error {
+func Testing(f *fiber.Ctx) error {
 	client, err := getClient(&Credentials{})
 	if err != nil {
 		return err
 	}
-	params := &twitter.MentionTimelineParams{Count: 1}
+	params := &twitter.MentionTimelineParams{Count: 10}
 
 	tweet, _, err := client.Timelines.MentionTimeline(params)
 	if len(tweet) == 0 {
@@ -96,10 +95,9 @@ func Testing(ctx *fiber.Ctx) error {
 		}
 
 	}
-
-	time.Sleep(5 * time.Second)
-	i++
+	/* i++
 	str := fmt.Sprintln("hola oleme las ", i)
-	_, err = ctx.WriteString(str)
+	_, err = ctx.WriteString(str) */
 	return err
+
 }
