@@ -11,10 +11,10 @@ import (
 )
 
 type Credentials struct {
-	AccessToken       string //1428812771819466757-FKzRVhyjBaj9jcNPluVKPPjXs4lOec
-	ConsumerKey       string //"b9RrONp8tqd7WmI2p3Pq8tkGY"
-	ConsumerSecret    string //j9cyDU7xcdzaxPQ9saqS9DrM7Aq4OyyunQLJxozlt1MHNv3vYd
-	AccessTokenSecret string //0M98FOe1T98zwKZnkNJ5FjGDQ2KyvDpODVTVhpFd9feja
+	AccessToken       string
+	ConsumerKey       string
+	ConsumerSecret    string
+	AccessTokenSecret string
 }
 
 func getClient(creds *Credentials) (*twitter.Client, error) {
