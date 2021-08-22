@@ -18,28 +18,22 @@ type Credentials struct {
 }
 
 func getClient(creds *Credentials) (*twitter.Client, error) {
-	// Pass in your consumer key (API Key) and your Consumer Secret (API Secret)
-	config := oauth1.NewConfig("b9RrONp8tqd7WmI2p3Pq8tkGY", "j9cyDU7xcdzaxPQ9saqS9DrM7Aq4OyyunQLJxozlt1MHNv3vYd")
-	// Pass in your Access Token and your Access Token Secret
-	token := oauth1.NewToken("1428812771819466757-FKzRVhyjBaj9jcNPluVKPPjXs4lOec", "0M98FOe1T98zwKZnkNJ5FjGDQ2KyvDpODVTVhpFd9feja")
+	config := oauth1.NewConfig("ConsumerKey", "ConsumerSecret")
+	token := oauth1.NewToken("AccessToken", "AccessTokenSecret")
 
 	httpClient := config.Client(oauth1.NoContext, token)
 	client := twitter.NewClient(httpClient)
 
-	// Verify Credentials
 	verifyParams := &twitter.AccountVerifyParams{
 		SkipStatus:   twitter.Bool(true),
 		IncludeEmail: twitter.Bool(true),
 	}
 
-	// we can retrieve the user and verify if the credentials
-	// we have used successfully allow us to log in!
 	_, _, err := client.Accounts.VerifyCredentials(verifyParams)
 	if err != nil {
 		return nil, err
 	}
 
-	/* log.Printf("User's ACCOUNT:\n%+v\n", user) */
 	return client, nil
 }
 
@@ -97,9 +91,6 @@ func Testing(f *fiber.Ctx) error {
 			}
 
 		}
-		/* i++
-		str := fmt.Sprintln("hola oleme las ", i)
-		_, err = ctx.WriteString(str) */
 		time.Sleep(50 * time.Second)
 	}
 }
