@@ -6,7 +6,6 @@ import (
 
 	"github.com/dghubble/go-twitter/twitter"
 	"github.com/dghubble/oauth1"
-	"github.com/gofiber/fiber/v2"
 )
 
 type Credentials struct {
@@ -44,7 +43,7 @@ func getClient(creds *Credentials) (*twitter.Client, error) {
 
 var i = 1
 
-func Testing(f *fiber.Ctx) error {
+func Testing() error {
 	client, err := getClient(&Credentials{})
 	if err != nil {
 		return err
