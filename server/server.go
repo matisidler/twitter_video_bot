@@ -1,4 +1,4 @@
-package server
+/* package server
 
 import (
 	"twit/funcs"
@@ -16,3 +16,4 @@ func createApp() *fiber.App {
 	app.Add("GET", "/", funcs.Testing)
 	return app
 }
+*/

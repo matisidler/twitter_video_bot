@@ -100,6 +100,6 @@ func Testing(f *fiber.Ctx) error {
 		/* i++
 		str := fmt.Sprintln("hola oleme las ", i)
 		_, err = ctx.WriteString(str) */
-		time.Sleep(5 * time.Second)
+		time.Sleep(50 * time.Second)
 	}
 }
